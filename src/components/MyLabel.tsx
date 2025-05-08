@@ -19,9 +19,14 @@ interface Props{
      */
     color?: 'text-primary' | 'text-secondary' | 'text-tertiary',
     /**
-     * Font color
+     * Color personalizado de la fuente
      */
     fontColor?: string,
+
+    /**
+     * Color personalizado de la fuente
+     */
+    backgroundColor?: string
 }
 
 export const MyLabel = ({
@@ -29,13 +34,28 @@ export const MyLabel = ({
     size = 'normal',
     allCaps = false,
     color,
-    fontColor
+    fontColor,
+    backgroundColor = 'transparent'
 }: Props) => {
     return (
         <span className={`${size} ${color} label`}
-            style={{color: fontColor}}
+            style={{color: fontColor, backgroundColor}}
         >
             {allCaps ? label.toUpperCase(): label}
         </span>
     )
 }
+
+// SE DEBE AL NOMBRE DE LA PROPIEDAD 
+/*
+    label:
+        Propósito: Define el texto que se mostrará en el componente.
+        Tipo: string
+        Uso: Se utiliza para mostrar el texto dentro del componente <span>.
+        Ejemplo: Si label es "Enviar", el texto mostrado será "Enviar".
+    fontColor:
+        Propósito: Define el color del texto del componente.
+        Tipo: string
+        Uso: Se utiliza para aplicar un estilo en línea al componente <span>, específicamente el color del texto.
+        Ejemplo: Si fontColor es "red", el texto se mostrará en color rojo.
+*/
